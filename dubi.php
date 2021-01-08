@@ -1,14 +1,15 @@
 <?php
-	$listOfOpenChars = array("{" => ["start" => false, "value" => 0, "parent"=>""], 
-								 "[" => ["start" => false, "value" => 0, "parent"=>""], 
-								 "(" => ["start" => false, "value" => 0, "parent"=>""]);
-	$listOfCloseChars = array("}" => "{", "]" => "[", ")" => "(");
+	
 
 	
-	if (array_key_exists("input", $_POST) && $_POST["input"] != '') {
+	if (array_key_exists("input", $_POST) &&  $_POST["input"] != '') {
 		$input = $_POST["input"];
 		$i = 0;
 		
+		$listOfOpenChars = array("{" => ["start" => false, "value" => 0, "parent"=>""], 
+								 "[" => ["start" => false, "value" => 0, "parent"=>""], 
+								 "(" => ["start" => false, "value" => 0, "parent"=>""]);
+		$listOfCloseChars = array("}" => "{", "]" => "[", ")" => "(");
 
 		
 		while ($i < strlen($input) ) {
@@ -71,6 +72,6 @@
 ?>
 
 <form action="" method="post">
-<input type="text" name="input" value ="<?php echo $_POST['input']; ?>"/>
+<input type="text" name="input" value ="<?php if (array_key_exists("input", $_POST) &&  $_POST["input"] != '') { echo $_POST['input']; } ?>"/>
 <input type="submit" value="Gönder"/>
 </form>
